@@ -1,0 +1,541 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TruthSeeker - Privacy Protection</title>
+<style>
+:root {
+  --primary: #2b6cb0;
+  --secondary: #4299e1;
+  --accent: #f6ad55;
+  --background: #f7fafc;
+  --text: #2d3748;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+.nav {
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.privacy-page {
+  margin-top: 5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.privacy-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.privacy-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.privacy-card:hover {
+  transform: translateY(-5px);
+}
+
+.privacy-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.quiz-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.quiz-question {
+  margin-bottom: 1.5rem;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 1rem;
+}
+
+.quiz-option {
+  padding: 1rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quiz-option:hover {
+  background: var(--background);
+}
+
+.quiz-option.correct {
+  background: #48bb78;
+  color: white;
+}
+
+.quiz-option.incorrect {
+  background: #f56565;
+  color: white;
+}
+
+.notification-signup {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.notification-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 1rem auto;
+}
+
+.notification-form input,
+.notification-form select {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.notification-form button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.notification-form button:hover {
+  opacity: 0.9;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.resource-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.resource-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+}
+
+.resource-card a:hover {
+  opacity: 0.9;
+}
+
+
+footer {
+  background: #1a202c;
+  color: #e2e8f0;
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-section h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-newsletter input {
+  background: #2d3748;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.footer-newsletter button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.footer-newsletter button:hover {
+  opacity: 0.9;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: #e2e8f0;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #2d3748;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-content">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 16v-4"/>
+        <path d="M12 8h.01"/>
+      </svg>
+      TruthSeeker
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="verify.html">Verify News</a>
+      <a href="courses.html">Courses</a>
+      <a href="privacyprotection.html" class="active">Privacy Protection</a>
+      <a href="games.html">Play Games</a>
+      <a href="about.html">About Us</a>
+    </div>
+  </div>
+</nav>
+
+<main class="privacy-page">
+  <h1>Protect Your Privacy Online</h1>
+  <p class="subtitle">Learn essential skills to safeguard your personal information</p>
+
+  <div class="privacy-cards">
+    <div class="privacy-card">
+      <img alt="suspicious email with red warning signs highlighting phishing elements, digital illustration" src="./images/susp.webp" width="400" height="200">
+      <h2>Recognize Phishing Attempts</h2>
+      <p>Learn to identify and avoid deceptive emails and messages</p>
+      <div class="quiz-container">
+        <div class="quiz-question">
+          <p>Which of these is a sign of a phishing email?</p>
+          <div class="quiz-options">
+            <div class="quiz-option" data-correct="true">Urgency to act immediately or face consequences</div>
+            <div class="quiz-option">A professional company logo</div>
+            <div class="quiz-option">A personalized greeting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="privacy-card">
+      <img alt="complex password visualization with special characters, numbers and letters, minimalist design" src="./images/pass.webp" width="400" height="200">
+      <h2>Create Strong Passwords</h2>
+      <p>Build and manage secure passwords for all your accounts</p>
+      <div id="password-strength-meter"></div>
+    </div>
+
+    <div class="privacy-card">
+      <img alt="social media privacy settings interface mockup with toggles and security options, modern UI design" src="./images/data.webp" width="400" height="200">
+      <h2>Social Media Privacy</h2>
+      <p>Configure your privacy settings across popular platforms</p>
+    </div>
+  </div>
+
+  <div class="notification-signup">
+    <h2>Stay Informed and Protected</h2>
+    <p>Get regular updates on privacy tips and current threats</p>
+    <form class="notification-form">
+      <input type="email" placeholder="Your email address" required>
+      <select required>
+        <option value="">Select notification frequency</option>
+        <option value="daily">Daily Updates</option>
+        <option value="weekly">Weekly Digest</option>
+        <option value="hourly">Hourly Alerts</option>
+      </select>
+      <div>
+        <label>
+          <input type="checkbox" name="notification-type" value="email"> Email
+        </label>
+        <label>
+          <input type="checkbox" name="notification-type" value="sms"> SMS
+        </label>
+      </div>
+      <button type="submit">Subscribe to Notifications</button>
+    </form>
+  </div>
+
+  <div class="resources-section">
+    <h2>Downloadable Resources</h2>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h3>Privacy Checklist</h3>
+        <p>A comprehensive guide to securing your online presence</p>
+        <a href="https://example.com/privacy-checklist.pdf">Download PDF</a>
+      </div>
+      <div class="resource-card">
+        <h3>Security Infographic</h3>
+        <p>Visual guide to common online threats and solutions</p>
+        <a href="https://example.com/security-infographic.pdf">Download PDF</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/verify">Verify News</a></li>
+        <li><a href="/games">Play Games</a></li>
+        <li><a href="/privacy">Protect Your Privacy</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <ul class="footer-links">
+        <li>Email: contact@truthseeker.com</li>
+        <li>Phone: +1 (555) 123-4567</li>
+        <li><a href="https://example.com/contact">Contact Form</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Stay Informed</h3>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Enter your email for updates and privacy tips">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Social Media</h3>
+      <div class="social-icons">
+        <a href="https://facebook.com" aria-label="Facebook">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5L14.17.5C10.24.5,9.1,3.3,9.1,6.18V7.46H6v4h3.1v12h5.4v-12h3.47l.4-4Z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com" aria-label="Twitter">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.95,4.57a10,10,0,0,1-2.82.77,4.96,4.96,0,0,0,2.16-2.72,9.9,9.9,0,0,1-3.12,1.19,4.92,4.92,0,0,0-8.39,4.49A14,14,0,0,1,1.64,3.16,4.92,4.92,0,0,0,3.2,9.72,4.86,4.86,0,0,1,.96,9.11v.06A4.93,4.93,0,0,0,4.88,14a5,5,0,0,1-2.23.08,4.93,4.93,0,0,0,4.6,3.42A9.9,9.9,0,0,1,0,19.54a14,14,0,0,0,7.55,2.21,13.89,13.89,0,0,0,14-14c0-.21,0-.42-.01-.63A9.93,9.93,0,0,0,24,4.59Z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" aria-label="LinkedIn">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48a1.56,1.56,0,1,1,1.56-1.56A1.56,1.56,0,0,1,6.59,8.48ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s.04-8.13,0-9h3v1.27a3,3,0,0,1,2.71-1.49c2,0,3.45,1.29,3.45,4.06Z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" aria-label="Instagram">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12,2.16c3.2,0,3.58,0,4.85.07,3.25.15,4.77,1.69,4.92,4.92.06,1.27.07,1.65.07,4.85s0,3.58-.07,4.85c-.15,3.23-1.66,4.77-4.92,4.92-1.27.06-1.64.07-4.85.07s-3.58,0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s0-3.58.07-4.85C2.38,3.92,3.9,2.38,7.15,2.23,8.42,2.18,8.8,2.16,12,2.16ZM12,0C8.74,0,8.33,0,7.05.07c-4.35.2-6.78,2.62-7,7C0,8.33,0,8.74,0,12s0,3.67.07,4.95c.2,4.36,2.62,6.78,7,7C8.33,24,8.74,24,12,24s3.67,0,4.95-.07c4.35-.2,6.78-2.62,7-7C24,15.67,24,15.26,24,12s0-3.67-.07-4.95c-.2-4.35-2.62-6.78-7-7C15.67,0,15.26,0,12,0Zm0,5.84A6.16,6.16,0,1,0,18.16,12,6.16,6.16,0,0,0,12,5.84ZM12,16a4,4,0,1,1,4-4A4,4,0,0,1,12,16ZM18.41,4.15a1.44,1.44,0,1,0,1.44,1.44A1.44,1.44,0,0,0,18.41,4.15Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2024 TruthSeeker. All rights reserved.</p>
+  </div>
+  
+  <div class="scroll-top">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </div>
+</footer>
+
+
+<script>
+document.querySelectorAll('.quiz-option').forEach(option => {
+  option.addEventListener('click', function() {
+    const isCorrect = this.dataset.correct === 'true';
+    this.classList.add(isCorrect ? 'correct' : 'incorrect');
+    
+    // Disable other options after selection
+    this.parentElement.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.style.pointerEvents = 'none';
+    });
+  });
+});
+
+document.querySelector('.notification-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for subscribing! You will receive a confirmation email shortly.');
+});
+
+// Simple password strength meter
+const passwordMeter = document.getElementById('password-strength-meter');
+// Add password strength functionality here
+
+
+
+// Scroll to top functionality
+const scrollTop = document.querySelector('.scroll-top');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 200) {
+    scrollTop.classList.add('visible');
+  } else {
+    scrollTop.classList.remove('visible');
+  }
+});
+
+scrollTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+</body></html>

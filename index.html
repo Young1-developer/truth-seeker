@@ -1,0 +1,850 @@
+<html><head><base href="/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<title>TruthSeeker - Fight Misinformation Together</title>
+<style>
+:root {
+  --primary: #2b6cb0;
+  --secondary: #4299e1;
+  --accent: #f6ad55;
+  --background: #f7fafc;
+  --text: #2d3748;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+.nav {
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+   /* Enhanced Hero Section Styles */
+   .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Animated icons */
+        .floating-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+
+        .magnifier {
+            top: 20%;
+            left: 15%;
+            animation: float 6s ease-in-out infinite, rotate 8s linear infinite;
+        }
+
+        .shield {
+            top: 30%;
+            right: 20%;
+            animation: float 7s ease-in-out infinite, scale 5s ease-in-out infinite;
+        }
+
+        .bulb {
+            bottom: 25%;
+            left: 25%;
+            animation: float 5s ease-in-out infinite, glow 3s ease-in-out infinite;
+        }
+
+        .news {
+            bottom: 30%;
+            right: 25%;
+            animation: float 8s ease-in-out infinite, rotate 6s linear infinite;
+        }
+
+        /* Particle effect */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+        }
+
+        /* Hero content styling */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: slideInUp 1s ease-out;
+            color: #1e3a8a;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.3s backwards;
+            color: #1e40af;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.6s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .cta-button:hover::after {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .floating-icon {
+                font-size: 2rem;
+            }
+        }
+
+.features {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.verify-tool {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.verify-input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.game-container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+    /* Animation Styles */
+    .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Facts Section */
+        .facts-section {
+            padding: 4rem 2rem;
+            background: #f8fafc;
+            margin: 2rem 0;
+        }
+
+        .fact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Courses Section */
+        .courses-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .course-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a365d;
+        }
+
+        .course-duration {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        /* Enhanced button animations */
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Added animations for existing content */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+
+footer {
+  background: #1a202c;
+  color: #e2e8f0;
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-section h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-newsletter input {
+  background: #2d3748;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.footer-newsletter button {
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.footer-newsletter button:hover {
+  opacity: 0.9;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: #e2e8f0;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #2d3748;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-content">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 16v-4"/>
+        <path d="M12 8h.01"/>
+      </svg>
+      TruthSeeker
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="verify.html">Verify News</a>
+      <a href="courses.html">Courses</a>
+      <a href="privacyprotection.html">Privacy Protection</a>
+      <a href="games.html">Play Games</a>
+      <a href="about.html">About Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Enhanced Hero Section -->
+<section class="hero">
+  <div class="particles" id="particles"></div>
+  <div class="floating-elements">
+      <div class="floating-icon magnifier">🔍</div>
+      <div class="floating-icon shield">🛡️</div>
+      <div class="floating-icon bulb">💡</div>
+      <div class="floating-icon news">📰</div>
+  </div>
+  <div class="hero-content">
+      <h1>Fight Misinformation Together</h1>
+      <p>Join our community in the battle against fake news</p>
+      <a href="#verify" class="cta-button">Start Fact-Checking</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>Verify News</h3>
+    <p>Use our AI-powered tool to check the reliability of news articles and sources in real-time.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Learn Through Play</h3>
+    <p>Engage with interactive games designed to improve your critical thinking skills.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Share Truth</h3>
+    <p>Share verified news and achievements with your network to spread awareness.</p>
+  </div>
+</section>
+
+<section id="verify" class="verify-tool">
+  <h2>News Verification Tool</h2>
+  <input type="text" class="verify-input" placeholder="Paste a news headline or URL here...">
+  <button class="cta-button">Verify Now</button>
+  <div id="results"></div>
+</section>
+
+<section id="games" class="game-container">
+  <h2>Truth Detective Game</h2>
+  <div id="game"></div>
+</section>
+
+
+<!-- New Facts Section -->
+<section class="facts-section">
+  <h2 data-aos="fade-up">Fun Facts About Nigeria</h2>
+  <div id="fact-display" class="fact-card" data-aos="fade-up"></div>
+</section>
+
+<!-- New Courses Section -->
+<section class="courses-section">
+  <h2 data-aos="fade-up">Learn to Combat Misinformation</h2>
+  <div class="course-grid">
+      <div class="course-card" data-aos="fade-up">
+          <h3 class="course-title">Fact-Checking Fundamentals</h3>
+          <p class="course-duration">Duration: 4 weeks</p>
+          <p class="course-description">Master the basics of information verification and source credibility assessment.</p>
+      </div>
+      <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="course-title">Digital Media Literacy</h3>
+          <p class="course-duration">Duration: 6 weeks</p>
+          <p class="course-description">Learn to navigate the digital landscape and identify reliable information sources.</p>
+      </div>
+      <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="course-title">Advanced Verification Techniques</h3>
+          <p class="course-duration">Duration: 8 weeks</p>
+          <p class="course-description">Deep dive into professional fact-checking methods and tools.</p>
+      </div>
+  </div>
+</section>
+
+
+<!-- footer -->
+
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/verify">Verify News</a></li>
+        <li><a href="/games">Play Games</a></li>
+        <li><a href="/privacy">Protect Your Privacy</a></li>
+        <li><a href="/about">About Us</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <ul class="footer-links">
+        <li>Email: contact@truthseeker.com</li>
+        <li>Phone: +1 (555) 123-4567</li>
+        <li><a href="https://example.com/contact">Contact Form</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Stay Informed</h3>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Enter your email for updates and privacy tips">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Social Media</h3>
+      <div class="social-icons">
+        <a href="https://facebook.com" aria-label="Facebook">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5L14.17.5C10.24.5,9.1,3.3,9.1,6.18V7.46H6v4h3.1v12h5.4v-12h3.47l.4-4Z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com" aria-label="Twitter">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.95,4.57a10,10,0,0,1-2.82.77,4.96,4.96,0,0,0,2.16-2.72,9.9,9.9,0,0,1-3.12,1.19,4.92,4.92,0,0,0-8.39,4.49A14,14,0,0,1,1.64,3.16,4.92,4.92,0,0,0,3.2,9.72,4.86,4.86,0,0,1,.96,9.11v.06A4.93,4.93,0,0,0,4.88,14a5,5,0,0,1-2.23.08,4.93,4.93,0,0,0,4.6,3.42A9.9,9.9,0,0,1,0,19.54a14,14,0,0,0,7.55,2.21,13.89,13.89,0,0,0,14-14c0-.21,0-.42-.01-.63A9.93,9.93,0,0,0,24,4.59Z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" aria-label="LinkedIn">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48a1.56,1.56,0,1,1,1.56-1.56A1.56,1.56,0,0,1,6.59,8.48ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s.04-8.13,0-9h3v1.27a3,3,0,0,1,2.71-1.49c2,0,3.45,1.29,3.45,4.06Z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" aria-label="Instagram">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12,2.16c3.2,0,3.58,0,4.85.07,3.25.15,4.77,1.69,4.92,4.92.06,1.27.07,1.65.07,4.85s0,3.58-.07,4.85c-.15,3.23-1.66,4.77-4.92,4.92-1.27.06-1.64.07-4.85.07s-3.58,0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s0-3.58.07-4.85C2.38,3.92,3.9,2.38,7.15,2.23,8.42,2.18,8.8,2.16,12,2.16ZM12,0C8.74,0,8.33,0,7.05.07c-4.35.2-6.78,2.62-7,7C0,8.33,0,8.74,0,12s0,3.67.07,4.95c.2,4.36,2.62,6.78,7,7C8.33,24,8.74,24,12,24s3.67,0,4.95-.07c4.35-.2,6.78-2.62,7-7C24,15.67,24,15.26,24,12s0-3.67-.07-4.95c-.2-4.35-2.62-6.78-7-7C15.67,0,15.26,0,12,0Zm0,5.84A6.16,6.16,0,1,0,18.16,12,6.16,6.16,0,0,0,12,5.84ZM12,16a4,4,0,1,1,4-4A4,4,0,0,1,12,16ZM18.41,4.15a1.44,1.44,0,1,0,1.44,1.44A1.44,1.44,0,0,0,18.41,4.15Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2024 TruthSeeker. All rights reserved.</p>
+  </div>
+  
+  <div class="scroll-top">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </div>
+</footer>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+<script>
+// News Verification Tool
+document.querySelector('.verify-tool button').addEventListener('click', function() {
+  const input = document.querySelector('.verify-input').value;
+  const results = document.querySelector('#results');
+  
+  // Simulate API call
+  setTimeout(() => {
+    results.innerHTML = `
+      <div style="margin-top: 1rem; padding: 1rem; background: #f0fff4; border-radius: 8px;">
+        <h4>Analysis Results:</h4>
+        <p>Reliability Score: 85%</p>
+        <p>Sources: 3 reputable news outlets have covered this story</p>
+        <p>Fact-Check Status: Verified</p>
+      </div>
+    `;
+  }, 1500);
+});
+
+// Simple Truth Detective Game
+const game = {
+  questions: [
+    {
+      text: "Which headline is more likely to be clickbait?",
+      options: [
+        "Local Weather Report: Weekend Forecast Shows Rain",
+        "YOU WON'T BELIEVE What This Weather Man Discovered!"
+      ],
+      correct: 1
+    }
+  ],
+  currentQuestion: 0,
+  score: 0,
+  
+  init() {
+    this.displayQuestion();
+  },
+  
+  displayQuestion() {
+    const question = this.questions[this.currentQuestion];
+    document.querySelector('#game').innerHTML = `
+      <div style="text-align: center;">
+        <h3>${question.text}</h3>
+        ${question.options.map((option, index) => `
+          <button 
+            onclick="game.checkAnswer(${index})"
+            class="cta-button" 
+            style="margin: 1rem; display: block; width: 100%;"
+          >${option}</button>
+        `).join('')}
+        <p>Score: ${this.score}</p>
+      </div>
+    `;
+  },
+  
+  checkAnswer(answer) {
+    if (answer === this.questions[this.currentQuestion].correct) {
+      this.score += 10;
+      alert('Correct! You can spot clickbait!');
+    } else {
+      alert('Try again! Remember to look for sensational language.');
+    }
+    this.displayQuestion();
+  }
+};
+
+game.init();
+
+
+
+
+// Scroll to top functionality
+const scrollTop = document.querySelector('.scroll-top');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 200) {
+    scrollTop.classList.add('visible');
+  } else {
+    scrollTop.classList.remove('visible');
+  }
+});
+
+scrollTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Create particle effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 3 and 8 pixels
+                const size = Math.random() * 5 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 10;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+    
+
+
+    
+        // Nigerian Facts Rotation
+        const facts = [
+            "Nigeria has over 500 indigenous languages!",
+            "Nollywood produces about 2,500 films annually",
+            "The Nigerian film industry employs over 1 million people",
+            "Lagos is Africa's largest tech hub",
+            "Nigeria has the largest economy in Africa",
+            "Nigerian traditional clothing features vibrant, colorful designs",
+            "Nigeria's music industry (Afrobeats) has global influence",
+            "The ancient Benin Kingdom's walls were once the largest man-made structure"
+        ];
+
+        let currentFact = 0;
+        const factDisplay = document.getElementById('fact-display');
+
+        function rotateFacts() {
+            factDisplay.style.opacity = '0';
+            setTimeout(() => {
+                factDisplay.textContent = facts[currentFact];
+                factDisplay.style.opacity = '1';
+                currentFact = (currentFact + 1) % facts.length;
+            }, 500);
+        }
+
+        // Initialize and start fact rotation
+        rotateFacts();
+        setInterval(rotateFacts, 5000);
+
+        // Enhanced scroll handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+</script>
+</body></html>
